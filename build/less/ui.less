@@ -1,0 +1,92 @@
+.hr {
+	width: 140px;
+	height: 1px;
+	background-color: #d7d7d7;
+	margin: 20px auto 30px;
+
+	span{
+		width: 50px;
+		height: 1px;
+		background-color: #515151;
+		margin: 0 auto;
+		display: block;
+	}
+	&.white {
+		background-color: #a1a1a1;
+		span {
+			background-color: #fff;
+		}	
+	}
+	&-card {
+		width: 32px;
+		height: 1px;
+		background-color: #d7d7d7;
+		margin: 20px 0 30px;
+	}
+}
+.slider-hr {
+	width: 50px;
+	height: 2px;
+	background-color: #282828;
+	display: inline-block;
+	margin: 15px 0;
+}
+.btn-success {
+	background-color: #7dca86;
+	border-radius: 0;
+	border: none;
+	padding: 9px 23px;
+	.hn-m;
+	font-size: 12px;
+	color: #fff;
+	&:hover,&:active {
+		border: none;
+		background-color: #5a855f;
+		padding: 9px 23px;
+	}
+}
+.btn-warning {
+	background-color: @color-orange;
+	border-radius: 0;
+	border: none;
+	color: #212121;
+	.hn-m;
+	&:hover {
+		background-color: #a68609;
+		color: #212121;
+	}
+	&.btn-absolute {
+		position: absolute;
+		right: 20px;
+		bottom: 20px;
+	}
+	&.design-2 {
+		background-color: #fff;
+		border: 2px solid @color-orange;
+		color: @color-orange;
+		padding: 6px 27px;
+		&:hover {
+			background-color: @color-orange;
+			color: #fff;
+		}
+	}
+}
+.not-padding-right {
+	padding-right: 0;
+}
+.not-padding-left {
+	padding-left: 0;
+}
+.my{
+	&-margin {
+		&-1 {
+			margin-top: 15px;
+		}
+	}
+	&-flex {
+		&-end {
+			display: flex;
+			align-items: flex-end;
+		}
+	}
+}

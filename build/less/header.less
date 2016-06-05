@@ -1,0 +1,218 @@
+.header {
+	&-lvl-1 {
+		border-top: 4px solid #455054;
+		background-color: #7dca86;
+		.leftSidebar {
+			position: absolute;
+			width: 100%;
+			//height: 100vh;
+			left: 0;
+			top: 0;
+			background-color: #fff;
+			z-index: 5;
+			height: 90000px;
+			.logo {
+				display: block;
+			}
+			background: #fff;
+			.header-menu {
+				ul {
+					list-style-type: none;
+					padding-left: 0;
+					margin-top: 30px;
+					text-align: center;
+					color: #7dca86;
+					a {
+						color: #7dca86;
+						display: flex;
+						flex-direction: column;
+						padding: 0 10px;
+						margin-bottom: 20px;
+						text-transform: uppercase;
+						img {
+							margin-bottom: 5px;
+						}
+						&:hover,&:focus {
+							text-decoration: none;
+						}
+					}
+				}
+			}
+		}
+		.navbar {
+			min-height: 0;
+			margin-bottom: 0;
+		}
+		.navbar-default {
+			border: none;
+			background-color: #7dca86;
+			ul {
+				float: none;
+				display: flex;
+				justify-content: space-between;
+				li {
+					float: none;
+					a {
+						padding: 0;
+						color: #fff;
+						.hn-m;
+						font-size: 12px;
+						display: block;
+						padding: 17px 0 22px;
+						&:hover {
+							color: #fff;
+							box-shadow: inset 0px -5px 0px 0px rgba(255, 255, 255, 1);
+							-moz-transition: all 0.4s;
+							-o-transition: all 0.4s;
+							-webkit-transition: all 0.4s;
+						}
+					}
+				}
+			}
+		}
+		.navbar-collapse {
+			border: none;
+			padding: 0;
+		}
+		.contacts {
+			display: flex;
+			justify-content: space-between;
+			padding: 17px 0 0 0;
+			&>div {
+				p {
+					.hn-b;
+					font-size: 15px;
+					color: #fff;
+					line-height: 14px;
+					margin-bottom: 0;
+					span {
+						.hn-m;
+						font-size: 11px;
+					}
+				}
+			}
+			.link-vk {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				background-image: url(../img/vk.png);
+				background-position: 0 30px;
+				&:hover {
+					background-position: 0 0;
+				}
+			}
+			.link-inst {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				background-image: url(../img/inst.png);
+				background-position: 0 30px;
+				&:hover {
+					background-position: 0 0;
+				}
+			}
+		}
+	}
+	&-lvl-2 {
+		background: url(../img/header-lvl-2-bg.jpg) no-repeat;
+		background-size: cover;
+		.slider {
+			.item {
+				padding: 160px 0 225px;
+				background: url(../img/item-bg.png) right bottom no-repeat;
+				h1 {
+					background-color: #f7c606;
+					display: inline-block;
+					padding: 18px 28px;
+					font-size: 40px;
+					.l-sb;
+					color: #2c2c2c;
+				}
+				h2 {
+					.hn;
+					font-size: 30px;
+					color: #4a4a4a;
+					margin-top: 20px;
+				}
+			}
+			.owl-controls {
+				margin: 0;
+			}
+		}
+		.owl-dots {
+				position: absolute;
+				bottom: 15px;
+				right: 0;
+				margin-right: 30px;
+			}
+		.owl-dot {
+			display: inline-block;
+			margin-right: 5px;
+			width: 12px;
+			height: 12px;
+			border-radius: 50%;
+			background-color: #fff;
+			//border: 1px solid #424c50;
+			&.active {
+				background-color: #7dca86;
+			}
+		}
+	}
+	&-lvl-3 {
+		background: url(../img/header-lvl-3-bg.jpg) no-repeat;
+		background-size: cover;
+		padding: 20px 0;
+		h2 {
+			font-size: 25px;
+			.l-sb;
+			color: #7dca86;
+			margin-bottom: 20px;
+		}
+		.open-door {
+			display: flex;
+			justify-content: space-between;
+			padding: 0 20px;
+			&>div{
+				&:nth-child(1) {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+				}
+				img {
+					margin-right: 10px;
+				}
+				p {
+					margin: 0;
+					.hn;
+					font-size: 20px;
+					color: #fff;
+				}
+			}
+		}
+		.listWrap{
+			display: inline-block;
+			text-align: left;
+			ul {
+				margin: 0;
+				padding: 0;
+				li {
+					.hn;
+					font-size: 15px;
+					color: #fff;
+					list-style: none;
+					position: relative;
+					padding-left: 25px;
+					&:before {
+						content: '';
+						position: absolute;
+						width: 16px;
+						height: 12px;
+						left: 0;
+						top: 6px;
+						background: url(../img/list-arrow.png);
+					}
+				}
+			}
+		}
+	}
+}

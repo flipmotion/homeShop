@@ -1,0 +1,35 @@
+.footer {
+	padding: 17px 0 10px;
+	background-color: #455054;
+	position: relative;
+	overflow: hidden;
+	&>.container {
+		&>.row {
+			&:after {
+				content: '';
+				height: 200px;
+				background: #fff;
+				width: 156.66px;
+				position: absolute;
+				top:0;
+				bottom:0;
+			}
+		}
+	}
+	p {
+		.hn-m;
+		font-size: 12px;
+		color: #fff;
+	}
+	.copy {
+		display: flex;
+		justify-content: space-between;
+		align-items:center;
+		&>div:nth-child(2) {
+			p {
+				.lato;
+				font-size: 10px;
+			}
+		}
+	}
+}
