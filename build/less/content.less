@@ -575,3 +575,58 @@
 	}
 	/*END new-building*/
 }
+/*modal*/
+.modal-content {
+	width: 440px;
+	height: 380px;
+	border-radius: 0;
+	border: 1px solid #515151;
+	.modal-header {
+		border-bottom: none;
+		padding: 0;
+		.close {
+			font-weight: 400;
+			.hn;
+			font-size: 40px;
+			color: #939393;
+			opacity: 1;
+			margin-right: 8px;
+		}
+	}
+	.modal-body {
+		padding: 0 25px 25px 25px; 
+		h4 {
+			color: @color-green;
+			.hn;
+			margin-bottom: 25px;
+			line-height: 23px;
+			&.my-margin {
+				margin-top: 50px;
+			}
+		}
+		form {
+			label {
+				font-size: 12px;
+				.hn;
+				color: #2f2f2f;
+			}
+			input {
+				border-radius: 0;
+				border: 1px solid @color-green;
+			}
+			textarea {
+				border-radius: 0;
+				border: 1px solid @color-green;
+				resize: none;
+				height: 100px;
+			}
+			button {
+				margin-top: 25px;
+			}
+		}
+		&.thx-call {
+			padding-top: 60px;
+		}
+	}
+}
+/*END modal*/

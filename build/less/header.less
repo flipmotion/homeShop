@@ -143,6 +143,38 @@
 			.owl-controls {
 				margin: 0;
 			}
+			&.main {
+				.item {
+					background: url(../img/header-lvl-2-bg.jpg) no-repeat;
+					background-size: cover;
+					padding: 0;
+					.inner-item{
+						padding: 160px 0 225px;
+						background: url(../img/item-bg.png) right bottom no-repeat;
+						h1 {
+							background-color: #f7c606;
+							display: inline-block;
+							padding: 18px 28px;
+							font-size: 40px;
+							.l-sb;
+							color: #2c2c2c;
+						}
+						h2 {
+							.hn;
+							font-size: 30px;
+							color: #4a4a4a;
+							margin-top: 20px;
+						}
+					}
+				}
+			}
+		}
+		#dots {
+			position: absolute;
+			bottom: 15px;
+			right: 0;
+			margin-right: 30px;
+			z-index: 9;
 		}
 		.owl-dots {
 				position: absolute;
@@ -152,7 +184,7 @@
 			}
 		.owl-dot {
 			display: inline-block;
-			margin-right: 5px;
+			margin-right: 10px;
 			width: 12px;
 			height: 12px;
 			border-radius: 50%;

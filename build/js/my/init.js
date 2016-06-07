@@ -24,10 +24,11 @@
  		pagination: false,
  		autoplay: true,
  		autoplayTimeout: 3000,
+ 		dotsContainer: '#dots',
  		navText: [
  		"<i class='my-arrow-left'></i>",
  		"<i class='my-arrow-right'></i>"
- 		],
+ 		]
  	});
 
 
