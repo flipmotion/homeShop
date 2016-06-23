@@ -59,9 +59,7 @@ gulp.task('html', function () {
 //js
 gulp.task('scripts', function() {
 	return gulp.src('build/js/my/*.js')
-		.pipe(babel({
-			presets: ['es2015']
-		}))
+		.pipe(babel())
 		.pipe(jshint())
 		.pipe(jshint.reporter('default'))
 		.pipe(concat('app.js'))

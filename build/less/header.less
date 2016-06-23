@@ -34,11 +34,29 @@
 						padding: 0 10px;
 						margin-bottom: 20px;
 						text-transform: uppercase;
-						img {
-							margin-bottom: 5px;
+						span {
+							display: block;
+							img {
+								margin-bottom: 5px;
+								position: relative;
+								z-index: 5;
+								&.hover {
+									position: relative;
+									margin-left: -39px;
+									z-index: 4;
+									display: none;
+								}
+							}
 						}
 						&:hover,&:focus {
 							text-decoration: none;
+							.hover {
+								margin-left: 0;
+								display: inline-block;
+							}
+							.remove {
+								display: none;
+							}
 						}
 					}
 				}
