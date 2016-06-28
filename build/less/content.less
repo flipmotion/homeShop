@@ -194,17 +194,25 @@
 	.home-item {
 		background-color: #fff;
 		display: table;
-		display: flex;
-		justify-content:space-between;
+		
 		margin-bottom: 20px;
 		&>div {
 			display: table-cell;
 			vertical-align: top;
 		}
+		&>div:nth-child(1) {
+			max-width: 180px;
+			width: 24%;
+			img {
+				width: 100%;
+			}
+		}
 		&>div:nth-child(2) {
 			display: table;
-			display: flex;
-			justify-content: space-between;				
+			width: 100%
+		}
+		&>div:nth-child(3) {
+			width: 20%
 		}
 		.item-descr {
 			padding: 0 10px 0 20px;
@@ -212,6 +220,9 @@
 				.l-sb;
 				color: #444;
 				margin: 20px 0 10px;
+				a {
+					color: #444;
+				}
 			}
 			.subtitle {
 				.hn;
@@ -306,10 +317,9 @@
 				.hn;
 				font-size: 12px;
 				color: #282828;
-				margin-bottom: 30px;
+				margin-bottom: 10px;
 			}
 			.slider {
-
 				.my-arrow-left {
 					background-image: url(../img/arrow-left.png);
 					width: 25px;
@@ -434,6 +444,7 @@
 				display: flex;
 				justify-content: flex-start;
 				align-items:center;
+				margin-top: 20px;
 				a {
 					&:hover {
 						text-decoration: none;
@@ -451,11 +462,12 @@
 					}
 					h4 {
 						color: #fff;
-
+						font-size: 13px;
 					}
 					p {
 						color: #fff;
 						margin: 0;
+						font-size: 13px;
 						span {
 							font-size: 20px;
 						}
@@ -468,6 +480,16 @@
 							img {
 								margin-right: 8px;
 							}
+							.icon-rub,
+							.icon-place {
+								color: #7dca86;
+								padding-right: 8px;
+								font-size: 13px;
+							}
+							.icon-rub {
+								padding-right: 10px;
+							}
+
 						}
 					}
 					&.dissable {
@@ -521,15 +543,23 @@
 		.home-item {
 			justify-content:flex-start;
 			position: relative;
-
 			&>div:nth-child(2) {
 				display: flex;
 				justify-content: space-between;
 				width: 100%;
+				padding-bottom: 15px;
+				padding-top: 15px;
 				.price-info {
 					position: absolute;
-					top: 10px;
+					top: 20px;
 					right: 20px;
+				}
+			}
+			&>div:nth-child(1) {
+				width: 1%;
+				a {
+					display: inline-block;
+					width: 180px;
 				}
 			}
 			h4 {
@@ -541,15 +571,28 @@
 			.subtitle {
 				margin-bottom: 7px;
 			}
+			.place-info {
+				padding:0;
+			}
+			.item-descr {
+				padding: 0 20px 0 20px;
+			}
 			.availability {
 				display: flex;
-				justify-content: flex-start;
+				justify-content: space-between;
 				align-items:center;
+				margin-top: 20px;
 				a {
+					width: 100%;
 					&:hover,&:focus {
 						text-decoration: none;
 						* {
 							text-decoration: none;
+						}
+					}
+					&:last-child {
+						.item {
+							margin-right: 0;
 						}
 					}
 				}
@@ -564,6 +607,9 @@
 					.icon-place {
 						color: #fff;
 						padding-right: 5px;
+					}
+					.icon-rub {
+						padding-right: 6px;
 					}
 					&>div:first-child {
 						flex-grow: 1;

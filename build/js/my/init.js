@@ -43,10 +43,13 @@
  			items : 9
  		},
  	};		
- 	function slider(sliderName,count,resp) {
+ 	function slider(sliderName,count,resp,loop) {
+ 		if(loop) {
+ 			loop = true;
+ 		}
  		$(sliderName).owlCarousel({
  			items : count,
- 			loop:true,
+ 			loop:loop,
  			nav:true,
  			pagination: false,
  			navText: [
@@ -57,7 +60,7 @@
  		});
  	};
  	slider('[data-slider="1"]',1);
- 	slider('[data-slider="9"]',9, cnt7);
+ 	slider('[data-slider="9"]',9, cnt7, false);
  	slider('[data-slider="2"]',2, cnt3);
  	slider('[data-slider="3"]',3, cnt2);
  	slider('[data-slider="2-2"]',2, cnt2);
