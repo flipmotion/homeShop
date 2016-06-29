@@ -58,11 +58,12 @@
 	.content.card-rent.block-2 .slider .item {
 		display: block;
 	}
-	// .content.block-2 .item>div:nth-child(1) img {
-	// 	width: 100%;
-	// }
+	.content.block-2 .item>div:nth-child(1) img {
+		width: 100%;
+		margin: 0;
+	}
 	.content.card-rent.block-2 .slider .item>div:nth-child(2) {
-		padding: 10px;
+		padding: 10px 20px;
 	}
 	.content.homes-block-3 h4 {
 		text-align: center;
@@ -226,21 +227,40 @@
 .content.block-2 .item {
 	justify-content: space-between;
 }
+body .hr-card {
+	margin: 20px 0 15px;
+}
+.content.card-rent.block-1 .place-info {
+	margin-top: 10px;
+}
+.content.card-rent.block-1 h2 {
+	font-size: 17px;
+}
+.content.card-rent.block-1 .subtitle {
+	font-size: 14px;
+}
 .content.card-rent.block-2 .slider .item>div:nth-child(1),
 .content.card-rent.block-2 .slider .item>div:nth-child(2) {
-	width: 49%;
+	width: 100%;
 }
 .content.card-rent.block-2 .slider .item>div:nth-child(1) img {
 	width: 100%;
 }
+.content.card-rent.block-2 .slider .item>div:nth-child(2) {
+	padding: 5px 20px;
+	margin-top: 10px;
+}
 .content.block-2 .item h4 {
 	font-size: 12px;
 }
+.content.card-rent.block-2 .slider .item {
+	display: block;
+}
 .content.card-rent.block-2 .slider .item .subtitle {
-	font-size: 10px;
+	font-size: 11px;
 }
 .content.card-rent.block-2 .slider .item .place p {
-	font-size: 12px;
+	font-size: 13px;
 	margin: 0 0 6px 5px;
 }
 .content.card-rent.block-2 .slider .item .price {
@@ -250,5 +270,24 @@
 	font-size: 13px;
 }
 /*END card-appartament*/
+/*card-JK*/
+body .my-flex-start {
+	display: block;
+}
+// .content.card-rent.block-1 .place-info {
+// 	display: block;
+// 	text-align: center;
+// }
+// .content .place-info .price-info .btn-warning {
+// 	width: auto;
+// }
+.content.card-JK.block-1 .availability {
+	flex-direction: column;
+}
+.content.card-JK.block-1 .availability .item {
+	width: 130px;
+    margin-bottom: 10px;
+}
+/*END card-JK*/
 
 }
