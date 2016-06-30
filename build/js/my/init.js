@@ -90,33 +90,49 @@
 			send();
 		}
 	});
- 	var sliders = document.getElementsByClassName('range-sliders');
 
- 	for ( var i = 0; i < sliders.length; i++ ) {
+ 	function rangeSlider(slider) {
+ 		var sliders = $('.range-sliders');
+ 		var min = sliders.data("min");
+ 		var max = sliders.data("max");
 
- 		noUiSlider.create(sliders[i], {
- 			start: [ 4000, 8000 ],
- 			connect: true,
- 			range: {
- 				'min': [  2000 ],
- 				'max': [ 10000 ]
- 			}
- 		});
+ 		for ( var i = 0; i < sliders.length; i++ ) {
 
- 		sliders[i].noUiSlider.on('slide', addValues);
+ 			noUiSlider.create(sliders[i], {
+ 				start: [ min, max ],
+ 				connect: true,
+ 				//step:1,
+ 				range: {
+ 					'min': [ min ],
+ 					'max': [ max ]
+ 				},
+ 			});
+ 			sliders[i].noUiSlider.on('slide', addValues);
+ 			/*sliders[i].noUiSlider.on('update', function( values, handle ) {
+ 				var value = values[handle];
+ 				console.log();
+ 			});*/
+ 		}
+
+ 		function addValues(){
+ 			var allValues = [];
+ 			var valueContainer = $('.from');
+ 			var minVal = $(valueContainer).find('.from-value');
+ 			var maxVal = $(valueContainer).find('.to-value');
+
+ 			for (var i = 0; i < sliders.length; i++) {
+ 				allValues.push(sliders[i].noUiSlider.get());
+ 				$(minVal[i]).text(Math.round(allValues[i][0]));
+ 				$(maxVal[i]).text(Math.round(allValues[i][1]));
+ 			};
+ 		}
+ 		addValues();
  	}
-
- 	function addValues(){
- 		var allValues = [];
-
- 		for (var i = 0; i < sliders.length; i++) {
- 			console.log(allValues.push(sliders[i].noUiSlider.get()));
- 		};
-
- 		console.log(allValues);
- 	}
-
-
+ 	rangeSlider();
+ 	$('[data-item="reset"]').on('click',function(e){
+ 		//$(e.currentTarget).parents('form')[0].reset();
+ 		location.reload();
+ 	});
  	$(".tags").select2({
  		theme: 'bootstrap',
  		minimumResultsForSearch: Infinity,
@@ -139,6 +155,7 @@
  		});
  		$container.html('').append($list);
  	}).trigger('change');
+
  });
  function send(){
  	var form = $('[data-form="send"]');
