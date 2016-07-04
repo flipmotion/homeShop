@@ -1,6 +1,6 @@
  $(document).ready(function() {
  	$(".fancybox").fancybox();
- 	var cnt2 =  {
+ 	var cnt1 =  {
  		0 : {
  			items : 1
  		},
@@ -12,6 +12,20 @@
  		},
  		992 : {
  			items : 2
+ 		},
+ 	}; 
+ 	var cnt2 =  {
+ 		0 : {
+ 			items : 1
+ 		},
+ 		480 : {
+ 			items : 1
+ 		},
+ 		768 : {
+ 			items : 2
+ 		},
+ 		992 : {
+ 			items : 3
  		},
  	}; 
  	var cnt3 =  {
@@ -33,7 +47,7 @@
  			items : 3
  		},
  		480 : {
- 			items : 3
+ 			items : 5
  		},
  		768 : {
  			items : 7
@@ -61,8 +75,8 @@
  	slider('[data-slider="1"]',1);
  	slider('[data-slider="9"]',9, cnt7, false);
  	slider('[data-slider="2"]',2, cnt3);
- 	slider('[data-slider="3"]',3, cnt2);
- 	slider('[data-slider="2-2"]',2, cnt2);
+ 	slider('[data-slider="3"]',3, cnt2, true);
+ 	slider('[data-slider="2-2"]',2, cnt1);
 
  	$('[data-slider="main"]').owlCarousel({
  		items : 1,
@@ -80,6 +94,7 @@
 
 
  	send();
+
  	var form = $('[data-form="send"]');
  	$(form).validator().on('submit', function (e) {
  		if ($(this).hasClass('disabled')) {
@@ -159,17 +174,35 @@
  });
  function send(){
  	var form = $('[data-form="send"]');
- 	form.ajaxForm(function() {
+ 	function showRequest(formData, jqForm, options) { 
+ 		var queryString = $.param(formData); 
+ 		var formElement = jqForm[0]; 
+ 		return true; 
+ 	}
+ 	function showResponse(responseText, statusText, xhr, $form)  {
+ 		var name = $form.data('item');
+ 		if(name === 'call') {
+ 			$('.modal').modal('hide');
+ 			$('#thx-call').modal('show');
+ 		} else if(name === 'call-2'){
+			$('.modal').modal('hide');
+ 			$('#thx-call-2').modal('show');
+ 		} else if(name === 'call-3'){
+			$('.modal').modal('hide');
+ 			$('#thx-call-3').modal('show');
+ 		}else {
 
- 		$('#call1').modal('hide');
- 		$('#call2').modal('hide');
- 		$('#call3').modal('hide');
- 		$('#call4').modal('hide');
- 		$('#call5').modal('hide');
- 		$('#call6').modal('hide');
- 		$('#thx').modal('show');
- 		$(form).resetForm();
- 	});
+ 		}
+ 	} 
+ 	var options = {
+ 		beforeSubmit:showRequest,
+ 		success: showResponse
+ 	}
+ 	form.ajaxForm(options); 
+ 	/*form.ajaxForm(function() {
+ 		$('.modal').modal('hide');
+ 		$('#thx-call').modal('show');
+ 	});*/
  }
 
 

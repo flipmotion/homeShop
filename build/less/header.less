@@ -40,6 +40,8 @@
 								margin-bottom: 5px;
 								position: relative;
 								z-index: 5;
+								width: 35px;
+								height: 35px;
 								&.hover {
 									position: relative;
 									margin-left: -39px;
@@ -279,12 +281,27 @@
 			}
 		}
 		} */
+		.navbar-toggle {
+			margin-right: 0;
+			background: 0 0;
+			border: none;
+			padding: 0;
+			.icon-bar {
+				width: 40px;
+				height: 8px;
+				background: #455054;
+				border-radius: 10px;
+				
+			}
+			&:hover,&:focus {
+				background: 0 0;
+			}
+		}
 		.header-menu.visible-xs {
 
 			ul {
 				list-style-type: none;
-				padding-left: 0;
-				margin-top: 30px;
+				padding: 5px 35px;
 				text-align: center;
 				color: #7dca86;
 				display: flex;
@@ -292,15 +309,17 @@
 					color: #7dca86;
 					display: flex;
 					flex-direction: column;
-					padding: 0 10px;
-					margin-bottom: 20px;
+					padding: 0;
+					margin-bottom: -22px;
 					text-transform: uppercase;
 					span {
 						display: block;
 						img {
-							margin-bottom: 5px;
+							margin-bottom: 0px;
 							position: relative;
 							z-index: 5;
+							width: 35px;
+							height: 35px;
 							&.hover {
 								position: relative;
 								margin-left: -39px;
@@ -311,6 +330,7 @@
 					}
 					&:hover,&:focus {
 						text-decoration: none;
+						box-shadow: none;
 						.hover {
 							margin-left: 0;
 							display: inline-block;
@@ -325,6 +345,7 @@
 		.my-navbar-header {
 			display: none;
 			justify-content: space-between;
+
 			&>div {
 				&:nth-child(2) {
 					display: flex;

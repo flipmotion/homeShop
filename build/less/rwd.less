@@ -57,8 +57,8 @@
 		display: block;
 	}
 	.content.block-2 .item>div:nth-child(1) img {
-		width: 100%;
 		margin: 0;
+		margin-right: 25px;
 	}
 	.content.card-rent.block-2 .slider .item>div:nth-child(2) {
 		padding: 10px 20px;
@@ -68,7 +68,7 @@
 		font-size: 15px;
 	}
 	.content.block-3 .btn-warning {
-		margin-top: 25px;
+		margin-top: 45px;
 	}
 	/*END card-appartament*/
 	/*card-JK*/
@@ -104,9 +104,28 @@
 		padding-left: 15px;
 	}
 	/*END contacs*/
-	
+	.content.about.block-2 .vocation .item .position {
+		height: 60px;
+	}
+	.content.about.block-2 .item .position {
+		height: 135px;
+	}
+	.my-filter .btns-flex {
+		margin-top: 20px;
+		flex-direction: column;
+		&>div {
+			width: 100%;
+			padding:0 !important;
+		}
+		.btn {
+			margin: 5px 0;
+		}
+	}
 }
 @media (min-width:480px) and (max-width: 767px) {
+	.sticky-page {
+		padding-top: 77px;
+	}
 	/*main*/ 
 	.header-lvl-1 .leftSidebar {
 		display: none;
@@ -115,7 +134,8 @@
 		padding-right: 15px;
 	}
 	.content.block-1 .offer {
-		height: 240px;
+		//height: 240px;
+		margin-bottom: 15px;
 	}
 	.content.block-1 .offer .inner.inner-2 {
 		height: 55%;
@@ -182,15 +202,6 @@
 		margin-bottom: 20px;
 	}
 	/*END servises*/ 
-
-
-
-
-
-
-
-
-
 	.header .my-navbar-header {
 		display: flex;
 		padding-left: 15px;
@@ -217,9 +228,100 @@
 			//box-shadow: none;
 		}
 	}
+	body .not-padding-left {
+		padding-left: 15px;
+	}
+	body .my-flex-start {
+		display: block;
+	}
+	.content.card-rent.block-1 .place-info {
+		padding: 15px 0;
+		margin-top: 10px;
+	}
+	.content.card-JK.block-1 .availability {
+		display: table;
+		margin-left: auto;
+		margin-right: auto;
+		width: 460px;
+	}
+	.content.card-JK.block-1 .availability a {
+		display: inline-block;
+		.item {
+			min-width: 140px;
+			width: auto;
+			margin-right: 10px;
+			margin-bottom: 10px;
+		}
+		&:nth-child(3n+3) {
+			.item {
+				margin-right: 0;
+			}
+		}
+	}
+
+	.header .my-navbar-header>div:nth-child(2) p {
+		font-size: 15px;
+		line-height: 18px;
+		padding-top: 2px;
+	}
+	.my-filter .btns-flex {
+		margin-top: 20px;
+		.btn {
+			margin: 0;
+		}
+	}
 }
 @media (min-width:0px) and (max-width: 479px) {
-/*main*/
+	/*main*/
+	.sticky-page {
+		padding-top: 77px;
+	}
+	.content.block-2 .item>div:nth-child(1)>div {
+		width: 70px;
+
+	}
+	.content.block-2 .item>div:nth-child(2) {
+		flex-grow: 1;
+		width: 100%;
+	}
+	.content.block-2 .item>div:nth-child(1) img {
+		width: 50px;
+		height: 50px;
+	}
+	.header .my-navbar-header {
+		display: flex;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.header {
+		.contacts {
+			display: none;
+		}
+	}
+	.header-lvl-1 .navbar {
+		margin-left: -15px;
+		margin-right: -15px;
+	}
+	.header-lvl-1 .navbar-default ul {
+		display: block;
+		margin:0;
+		padding: 10px 15px;
+		background: #455054;
+	}
+	.header-lvl-1 .navbar-default ul li a {
+		padding: 10px 0;
+		&:hover,&:focus {
+			//box-shadow: none;
+		}
+	}
+	.header .my-navbar-header>div:nth-child(2) {
+		&>div:nth-child(2) {
+			display: none;
+		}
+	}
+	.header .header-menu.visible-xs ul {
+		padding: 5px 15px;
+	}
 	.header-lvl-1 .leftSidebar {
 		display: none;
 	}
@@ -227,7 +329,7 @@
 		padding-right: 15px;
 	}
 	.content.block-1 .offer {
-		height: 240px;
+		//height: 240px;
 	}
 	.content.block-1 .offer .inner.inner-2 {
 		height: 55%;
@@ -267,8 +369,15 @@
 	.footer p {
 		font-size: 10px;
 	}
-/*END main*/
-/*vtorichka*/
+	.content.block-1 .offer {
+		height: auto;
+		margin-bottom: 15px;
+	}
+	body .not-padding-left {
+		padding-left: 15px;
+	}
+	/*END main*/
+	/*vtorichka*/
 	.content .sort {
 		display: block;
 		margin-bottom: 15px;
@@ -302,8 +411,8 @@
 	.content .place-info .price-info .price {
 		margin: 25px 0 0;
 	}
-/*END vtorichka*/
-/*card-appartament*/
+	/*END vtorichka*/
+	/*card-appartament*/
 	.content.card-rent.block-1 .place-info {
 		align-items: flex-start;
 		padding: 15px 0;
@@ -373,7 +482,7 @@
 	}
 	.content.card-JK.block-1 .availability .item {
 		width: 130px;
-	    margin-bottom: 10px;
+		margin-bottom: 10px;
 	}
 	/*END card-JK*/
 	/*comertion*/
@@ -381,17 +490,17 @@
 		display: block;
 	}
 	.home-item h4 {
-   		margin: 20px 0 10px;
-   		text-decoration: none;
-   		padding-left: 10px;
-   		.l-sb;
+		margin: 20px 0 10px;
+		text-decoration: none;
+		padding-left: 10px;
+		.l-sb;
 	}
 	.home-item .subtitle {
 		font-weight: 400;
-	    font-size: 12px;
-	    color: #7dca86;
-	    margin: 0 0 13px;
-	    padding-left: 10px;
+		font-size: 12px;
+		color: #7dca86;
+		margin: 0 0 13px;
+		padding-left: 10px;
 	}
 	.home-item h4 a {
 		color: #444;
@@ -422,8 +531,7 @@
 		display: block;
 	}
 	.content.new-building .home-item .availability {
-		display: block;
-		text-align: center;
+		display: none;
 	}
 	.content.new-building .home-item .place-info {
 		display: block;
@@ -432,15 +540,7 @@
 		position: static;
 		text-align: center;
 	}
-	.content.new-building .home-item .availability .item {
-		width: 130px;
-		margin: 0 auto 10px;
-		display: block;
-
-	}
-	.content.new-building .home-item .availability a:last-child .item {
-		margin: 0 auto 10px;
-	}
+	
 	.content.new-building .home-item .item-descr {
 		padding: 0 10px;
 	}
@@ -478,6 +578,13 @@
 	.content.services.block-3 .slider .item>div:nth-child(1) img {
 		margin: 0 0 10px 0;
 	}
+	.content.services .item {
+		&>div:nth-child(1) {
+			&>div {
+				width: 100%;
+			}
+		}
+	}
 	/*END servises*/
 	/*sale*/
 	.content.sale.block-1 form h2 {
@@ -487,17 +594,6 @@
 		line-height: 28px;
 	}
 	/*END sale*/
-
-
-
-
-
-
-
-
-
-
-
 	.header .my-navbar-header {
 		display: flex;
 	}
@@ -505,5 +601,26 @@
 		.contacts {
 			display: none;
 		}
+	}
+	.select2-container--bootstrap {
+		width: 100% !important;
+	}
+	.content.services.block-3 h2 {
+		text-align: center;
+	}
+	.header .my-navbar-header>div:nth-child(2) p {
+		font-size: 15px;
+		line-height: 18px;
+		padding-top: 2px;
+	}
+	.my-filter .btns-flex {
+		margin-top: 20px;
+		.btn {
+			margin: 0;
+		}
+	}
+	.content.about.block-2 .item .name,
+	.content.about.block-2 .item .position {
+		height: auto;
 	}
 }
