@@ -198,11 +198,7 @@
  		beforeSubmit:showRequest,
  		success: showResponse
  	}
- 	form.ajaxForm(options); 
- 	/*form.ajaxForm(function() {
- 		$('.modal').modal('hide');
- 		$('#thx-call').modal('show');
- 	});*/
+ 	form.ajaxForm(options);
  }
 
 
