@@ -9,7 +9,12 @@
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-	
+	.checkbox-inline+.checkbox-inline, .radio-inline+.radio-inline {
+		margin-left: 0;
+	}
+	.header-lvl-1 .contacts>div p {
+		font-size: 12px;
+	}
 	.content.block-1 .offer {
 		height: 240px;
 	}
@@ -121,8 +126,43 @@
 			margin: 5px 0;
 		}
 	}
+	.content.card-rent.block-2 .slider {
+		.item {
+			&>div:nth-child(1){
+				a {
+					display: block;
+				}
+				img {
+					width: 100%;
+				}
+			}
+			
+		}
+	}
+	.content.new-building .home-item .availability {
+		display: none;
+	}
 }
 @media (min-width:480px) and (max-width: 767px) {
+	.item.main-page {
+		display:table !important;
+		width: 100%;
+		&>div {
+			display: table-cell;
+			vertical-align: top;
+		}
+		&>div:nth-child(1) {
+			div {
+				padding-right: 10px;
+				width: 50px;
+				height: 50px;
+				img {
+					width: 100%;
+					margin:0 !important;
+				}
+			}
+		}
+	}
 	.sticky-page {
 		padding-top: 77px;
 	}
@@ -270,8 +310,149 @@
 			margin: 0;
 		}
 	}
+	/*comertion*/ 
+	.my-hidden-480 {
+		display: none !important;
+	}
+
+	.content .place-info {
+		padding: 15px 20px;
+	}
+	.content .place-info h4 a{
+		color: #444;
+		.l-sb;
+		text-decoration: none;
+		margin-bottom: 15px;
+		display: inline-block;
+	}
+	/*END comertion*/ 
+	/*new-building*/ 
+	.content.new-building .home-item>div:nth-child(2) .price-info {
+		position: static;
+		
+	}
+	body .btn-warning.design-2 {
+		width: auto;
+	}
+	.content .home-item>div:nth-child(1) {
+		max-width: 1%;
+	}
+	.content.new-building .home-item>div:nth-child(2) {
+		display: table-cell;
+	}
+	.content.new-building .home-item>div:nth-child(1) a {
+		display: block;
+		width: 100%;
+	}
+	.content .place-info {
+		display: block;
+	}
+	.content.new-building .home-item>div:nth-child(2) .place-info {
+		padding: 15px 20px;
+	}
+	.content .place-info h4 {
+		margin: 0;
+		
+	}
+	.content .place-info h4 a{
+		color: #444;
+		.l-sb;
+		text-decoration: none;
+		margin-bottom: 15px;
+		display: inline-block;
+
+	}
+	.content .home-item .place-info .subtitle {
+		font-weight: 400;
+		font-size: 12px;
+		color: #7dca86;
+		margin: 0 0 13px;
+
+	}
+	/*END new-building*/ 
+	/*header-phone-links*/ 
+	.header .my-navbar-header>div:nth-child(2) p a {
+		color: #fff;
+		text-decoration: none;
+	}
+	/*END header-phone-links*/ 
+	.content .home-item>div:nth-child(1) {
+		width: 1%;
+		a {
+			display: block;
+			width: 210px;
+		}
+	}
+	.content .home-item>div:nth-child(1) img {
+		min-width: 200px;
+	}
+	.content .home-item>div:nth-child(3) {
+		width: 100%;
+	}
+	.content.new-building {
+		.home-item {
+			.price-info {
+				margin-top: 10px;
+			}
+			h4 a {
+				margin-bottom: 0;
+			}
+			.subtitle {
+				margin-bottom: 0;
+			}
+			&>div:nth-child(2) .place-info {
+				padding:0 10px;
+			}
+			&>div:nth-child(2) {
+				padding-top: 0;
+			}
+		}
+	}
+	.my-filter .btns-flex {
+		
+		.btn {
+			width: auto !important;
+			margin: auto;
+		}
+	}
 }
 @media (min-width:0px) and (max-width: 479px) {
+	.modal-content {
+		width: 100%;
+	}
+	.my-filter .btns-flex {
+		.btn {
+			width: 100% !important;
+		}
+	}
+	.item.main-page {
+		display:table !important;
+		width: 100%;
+		&>div {
+			display: table-cell;
+			vertical-align: top;
+		}
+		&>div:nth-child(1) {
+			div {
+				padding-right: 10px;
+				width: 50px !important;
+				height: 50px;
+				img {
+					width: 100%;
+					margin:0 !important;
+				}
+			}
+		}
+	}
+	/*header-phone-links*/ 
+	.header .my-navbar-header>div:nth-child(2) p a {
+		color: #fff;
+		text-decoration: none;
+	}
+	/*END header-phone-links*/ 
+	.my-hidden-0 {
+		display: none;
+	}
 	/*main*/
 	.sticky-page {
 		padding-top: 77px;
@@ -285,8 +466,8 @@
 		width: 100%;
 	}
 	.content.block-2 .item>div:nth-child(1) img {
-		width: 50px;
-		height: 50px;
+		/* width: 50px;
+		height: 50px; */
 	}
 	.header .my-navbar-header {
 		display: flex;
@@ -398,7 +579,7 @@
 		justify-content: flex-start;
 	}
 	.content .home-item>div:nth-child(1) {
-		width: 48%;
+		width: 1%;
 	}
 	body .btn-warning.design-2 {
 		width: auto;
@@ -623,4 +804,5 @@
 	.content.about.block-2 .item .position {
 		height: auto;
 	}
+	
 }

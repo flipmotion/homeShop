@@ -1228,6 +1228,9 @@
 			margin-bottom: 0;
 		}
 	}
+	.form-group {
+		margin-bottom: 25px;
+	}
 }
 .select2-container--bootstrap {
 	font-size: 12px;
@@ -1278,7 +1281,19 @@
 		text-decoration: none;
 	}
 }
-
+.select2-container--bootstrap .select2-selection--multiple .select2-selection__rendered {
+	&>div {
+		position: absolute;
+		left: 0;
+		width: 100%;
+		overflow: hidden;
+		padding-left: 5px;
+		padding-right: 5px;
+		font-size: 12px;
+		line-height: 1.9;
+		text-overflow: ellipsis;
+	}
+}
 .select2-selection__choice {
 	display: none;
 }

@@ -1,4 +1,17 @@
  $(document).ready(function() {
+ 	(function(){
+ 		$('.header-menu').addClass('active');
+ 		$(window).scroll(function (e) {
+ 			var top = $(this).scrollTop();
+ 			if ( top > 10 ) {
+ 				$('.header-menu').removeClass('active');
+
+ 			} else if ( top <= 10 ) {
+ 				$('.header-menu').addClass('active');
+ 			}
+ 		});
+ 	})();
+
  	$(".fancybox").fancybox();
  	var cnt1 =  {
  		0 : {
@@ -92,7 +105,6 @@
  		]
  	});
 
-
  	send();
 
  	var form = $('[data-form="send"]');
@@ -108,18 +120,14 @@
 
  	function rangeSlider(slider) {
  		var sliders = $('.range-sliders');
- 		var min = sliders.data("min");
- 		var max = sliders.data("max");
-
  		for ( var i = 0; i < sliders.length; i++ ) {
-
  			noUiSlider.create(sliders[i], {
- 				start: [ min, max ],
+ 				start: [ $(sliders[i]).data("min"), $(sliders[i]).data("max") ],
  				connect: true,
- 				//step:1,
+ 				step:1,
  				range: {
- 					'min': [ min ],
- 					'max': [ max ]
+ 					'min': [ $(sliders[i]).data("min") ],
+ 					'max': [ $(sliders[i]).data("max") ]
  				},
  			});
  			sliders[i].noUiSlider.on('slide', addValues);
@@ -134,29 +142,34 @@
  			var valueContainer = $('.from');
  			var minVal = $(valueContainer).find('.from-value');
  			var maxVal = $(valueContainer).find('.to-value');
+ 			var input = $(valueContainer).siblings('input');
 
  			for (var i = 0; i < sliders.length; i++) {
  				allValues.push(sliders[i].noUiSlider.get());
  				$(minVal[i]).text(Math.round(allValues[i][0]));
  				$(maxVal[i]).text(Math.round(allValues[i][1]));
+ 				//add to input price
+ 				$(input[i]).val(allValues[i]);
  			};
  		}
  		addValues();
  	}
  	rangeSlider();
  	$('[data-item="reset"]').on('click',function(e){
- 		//$(e.currentTarget).parents('form')[0].reset();
  		location.reload();
  	});
  	$(".tags").select2({
  		theme: 'bootstrap',
- 		minimumResultsForSearch: Infinity,
- 		placeholder: 'Выберите тип'
+ 		minimumResultsForSearch: Infinity
  	}).on('change', function() {
  		var $selected = $(this).find('option:selected');
  		var $container = $(this).siblings('.tags-container');
-
+ 		var $input = $(this).siblings('input');
+ 		var arr = [];
+ 		var str;
  		var $list = $('<ul>');
+ 		var ul = $(this).siblings('.select2').find('.select2-selection__rendered');
+
  		$selected.each(function(k, v) {
  			var $li = $('<li class="tag-selected"><a class="destroy-tag-selected">×</a>' + $(v).text() + '</li>');
  			$li.children('a.destroy-tag-selected')
@@ -167,11 +180,56 @@
  				$opt.parents('select').trigger('change');
  			}).data('select2-opt', $(v));
  			$list.append($li);
+ 			arr.push($(v).text());
+ 			str = arr.join(', ');
  		});
+
+ 		var div = $('<div>' + str +'</div>');
+
+ 		if(div.text() != 'undefined') {
+ 			ul.append(div);
+ 		}
+ 		$input.val(str);
+
  		$container.html('').append($list);
+ 		
  	}).trigger('change');
 
+ 	$(document).on('click', '[data-show-more]', function(){
+ 		var btn = $(this);
+ 		var page = btn.attr('data-next-page');
+ 		var id = btn.attr('data-show-more');
+ 		var bx_ajax_id = btn.attr('data-ajax-id');
+ 		var block_id = "#comp_"+bx_ajax_id;
+
+ 		var data = {
+ 			bxajaxid:bx_ajax_id
+ 		};
+ 		data['PAGEN_'+id] = page;
+
+ 		$.ajax({
+ 			type: "GET",
+ 			url: window.location.href,
+ 			data: data,
+ 			timeout: 3000,
+ 			success: function(data) {
+ 				$("#btn_"+bx_ajax_id).remove();
+ 				$(block_id).append(data);
+ 				console.log(block_id);
+ 			}
+ 		});
+ 	});
+
+ 	var filterForm = $('[data-form="filter"]');
+
+ 	filterForm.on('submit', function(e){
+ 		e.preventDefault();
+ 		var data = decodeURI($( this ).serialize());
+ 		console.log(data);
+ 	});
+
  });
+ 
  function send(){
  	var form = $('[data-form="send"]');
  	function showRequest(formData, jqForm, options) { 
@@ -185,10 +243,10 @@
  			$('.modal').modal('hide');
  			$('#thx-call').modal('show');
  		} else if(name === 'call-2'){
-			$('.modal').modal('hide');
+ 			$('.modal').modal('hide');
  			$('#thx-call-2').modal('show');
  		} else if(name === 'call-3'){
-			$('.modal').modal('hide');
+ 			$('.modal').modal('hide');
  			$('#thx-call-3').modal('show');
  		}else {
 

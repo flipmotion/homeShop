@@ -110,6 +110,14 @@
 					color: #fff;
 					line-height: 14px;
 					margin-bottom: 0;
+					a {
+						.hn-b;
+						font-size: 15px;
+						color: #fff;
+						line-height: 14px;
+						margin-bottom: 0;
+						text-decoration: none;
+					}
 					span {
 						.hn-m;
 						font-size: 11px;
@@ -165,11 +173,9 @@
 			}
 			&.main {
 				.item {
-					background: url(../img/header-lvl-2-bg.jpg) no-repeat;
-					background-size: cover;
 					padding: 0;
 					.inner-item{
-						padding: 160px 0 0px;
+						padding: 0px 0 0px;
 						//background: url(../img/item-bg.png) right bottom no-repeat;
 						h1 {
 							background-color: #f7c606;
@@ -298,7 +304,6 @@
 			}
 		}
 		.header-menu.visible-xs {
-
 			ul {
 				list-style-type: none;
 				padding: 5px 35px;
@@ -314,6 +319,12 @@
 					text-transform: uppercase;
 					span {
 						display: block;
+						font-size: 10px;
+						&:nth-child(2) {
+							display: none;
+							color: #fff;
+							margin-top: 5px;
+						}
 						img {
 							margin-bottom: 0px;
 							position: relative;
@@ -338,8 +349,38 @@
 						.remove {
 							display: none;
 						}
+						span:nth-child(2){
+							color: #7dca86;
+						}
+					}
+
+				}
+				li {
+					&.active a {
+						text-decoration: none;
+						box-shadow: none;
+						.hover {
+							margin-left: 0;
+							display: inline-block;
+						}
+						.remove {
+							display: none;
+						}
+						span:nth-child(2){
+							color: #7dca86;
+						}
 					}
 				}
+			}
+			&.active {
+				ul a {
+					margin-bottom: 0;
+				}
+				ul a span:nth-child(2) {
+					display: block;
+
+				}
+
 			}
 		}
 		.my-navbar-header {
