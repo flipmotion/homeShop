@@ -105,6 +105,7 @@
  		"<i class='my-arrow-right'></i>"
  		]
  	});
+ 	
 
  	send();
 

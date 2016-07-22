@@ -202,9 +202,13 @@
 				</section>
 
 				<section class="header-lvl-2">
-					<div class="slider main">
-						<div class="owl-carousel" data-slider="main">
-							<div class="item">
+					<div id="main" class="carousel slide slider main" data-ride="carousel" data-interval="3000">
+						<!-- Indicators -->
+						
+						<div class="carousel-inner" role="listbox">
+
+							<div class="item active">
+
 								<div class="container">
 									<div class="row">
 										<div class="col-xs-12 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2">
@@ -214,8 +218,10 @@
 										</div>
 									</div>
 								</div>
+
 							</div>
 							<div class="item">
+
 								<div class="container">
 									<div class="row">
 										<div class="col-xs-12 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2">
@@ -225,12 +231,16 @@
 										</div>
 									</div>
 								</div>
+
 							</div>
 						</div>
 						<div class="container">
 							<div class="row">
-								<div class="col-xs-12 col-sm-12 col-md-12">
-									<div id="dots"></div>
+								<div class="col-xs-12 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2">
+									<ol class="carousel-indicators">
+										<li data-target="#main" data-slide-to="0" class="active owl-dot"></li>
+										<li data-target="#main" data-slide-to="1" class="owl-dot"></li>
+									</ol>
 								</div>
 							</div>
 						</div>
