@@ -12,7 +12,8 @@ $(document).ready(function () {
       }
     });
   })();
-
+  var phoneNum = $('[data-item="phone"]'); 
+  phoneNum.mask("+7 (999) 999-99-99");
   $(".fancybox").fancybox();
   var cnt1 = {
     0: {
@@ -103,6 +104,7 @@ $(document).ready(function () {
   send();
 
   var form = $('[data-form="send"]');
+
   $(form).validator().on('submit', function (e) {
     if ($(this).hasClass('disabled')) {
       // handle the invalid form...
