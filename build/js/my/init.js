@@ -1,18 +1,5 @@
 'use strict';
-
 $(document).ready(function () {
-  (function () {
-    $('.header-menu').addClass('active');
-    $(window).scroll(function (e) {
-      var top = $(this).scrollTop();
-      if (top > 10) {
-        $('.header-menu').removeClass('active');
-      } else if (top <= 10) {
-        $('.header-menu').addClass('active');
-      }
-    });
-  })();
-
   $(".fancybox").fancybox();
   var cnt1 = {
     0: {
@@ -113,10 +100,11 @@ $(document).ready(function () {
     }
   });
 
-  function rangeSlider(slider) {
+  function rangeSlider() {
     var sliders = $('.range-sliders');
+
     for (var i = 0; i < sliders.length; i++) {
-      noUiSlider.create(sliders[i], {
+      var slider = noUiSlider.create(sliders[i], {
         start: [$(sliders[i]).data("min"), $(sliders[i]).data("max")],
         connect: true,
         step: 1,
@@ -125,13 +113,10 @@ $(document).ready(function () {
           'max': [$(sliders[i]).data("max")]
         }
       });
+      $(sliders[i]).data('slider', slider);
       sliders[i].noUiSlider.on('slide', addValues);
-      /*sliders[i].noUiSlider.on('update', function( values, handle ) {
-      	var value = values[handle];
-      	console.log();
-      });*/
     }
-
+    
     function addValues() {
       var allValues = [];
       var valueContainer = $('.from');
@@ -141,15 +126,87 @@ $(document).ready(function () {
 
       for (var i = 0; i < sliders.length; i++) {
         allValues.push(sliders[i].noUiSlider.get());
-        $(minVal[i]).text(Math.round(allValues[i][0]));
-        $(maxVal[i]).text(Math.round(allValues[i][1]));
-        //add to input price
+
+        $(minVal[i]).val(Math.round(allValues[i][0]));
+        $(maxVal[i]).val(Math.round(allValues[i][1]));
         $(input[i]).val(allValues[i]);
       };
     }
+    $('.from-value').change(function(){
+      var hidden = $(this).parents('.from').next().siblings('input');
+      var prev = $(this).parents('.from').next();
+      var min = prev.data('min');
+      
+      if(min <= this.value) {
+        prev.data('slider').set([this.value, null]);
+        var val = prev.data('slider').get();
+        hidden.val(val);
+      } else {
+        this.value = min;
+        prev.data('slider').set([this.value, null]);
+        var val = prev.data('slider').get();
+        hidden.val(val);
+      }
+
+    });
+    $('.to-value').change(function(){
+     var hidden = $(this).parents('.from').next().siblings('input');
+     var prev = $(this).parents('.from').next();
+     var max = prev.data('max');
+     if(max >= this.value) {
+      prev.data('slider').set([null, this.value]);
+      var val = prev.data('slider').get();
+      hidden.val(val);
+    } else {
+      this.value = max;
+      prev.data('slider').set([null, this.value]);
+      var val = prev.data('slider').get();
+      hidden.val(val);
+    }
+  });
     addValues();
   }
   rangeSlider();
+
+  /*function rangeSlider(){
+
+    function createSlider (slide) {
+      var slider = noUiSlider.create(sliders[slide], {
+        start: [$(sliders[i]).data("min"), $(sliders[i]).data("max")],
+        connect: true,
+        step: 1,
+        range: {
+          'min': [$(sliders[i]).data("min")],
+          'max': [$(sliders[i]).data("max")]
+        }
+      });
+
+      $(sliders[slide]).data('slider', slider);
+      sliders[slide].noUiSlider.on('change', addValues);
+    }
+
+    function addValues(values, handle) {
+      console.log( $(event.target).parents('.form-group').find('.from-value').val(values));
+      //console.log($(event.currentTarget).find('.from-value').val(values[0]));
+    }
+    var sliders = $('.range-sliders');
+
+    for ( var i = 0; i < sliders.length; i++ ) {
+      createSlider(i);
+    }
+
+    $('.from-value').change(function(){
+      $(this).parents('.from').next().data('slider').set([this.value, null]);
+    });
+    $('.to-value').change(function(){
+      $(this).parents('.from').next().data('slider').set([null, this.value]);
+    });
+  }
+  rangeSlider();*/
+
+
+
+
   $('[data-item="reset"]').on('click', function (e) {
     location.reload();
   });

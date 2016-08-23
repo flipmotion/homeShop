@@ -1,6 +1,9 @@
 'use strict';
 
 $(document).ready(function () {
+ 
+  var phoneNum = $('[data-item="phone"]'); 
+  phoneNum.mask("+7 (999) 999-99-99");
   $(".fancybox").fancybox();
   var cnt1 = {
     0: {
@@ -91,6 +94,7 @@ $(document).ready(function () {
   send();
 
   var form = $('[data-form="send"]');
+
   $(form).validator().on('submit', function (e) {
     if ($(this).hasClass('disabled')) {
       // handle the invalid form...
@@ -101,12 +105,11 @@ $(document).ready(function () {
     }
   });
 
-  function rangeSlider() {
+  function rangeSlider(slider) {
     var sliders = $('.range-sliders');
-
     for (var i = 0; i < sliders.length; i++) {
-      var slider = noUiSlider.create(sliders[i], {
-        start: [$(sliders[i]).data("min"), $(sliders[i]).data("max")],
+      noUiSlider.create(sliders[i], {
+        start: [$(sliders[i]).data("min-start"), $(sliders[i]).data("max-start")],
         connect: true,
         step: 1,
         range: {
@@ -114,8 +117,11 @@ $(document).ready(function () {
           'max': [$(sliders[i]).data("max")]
         }
       });
-      $(sliders[i]).data('slider', slider);
       sliders[i].noUiSlider.on('slide', addValues);
+      /*sliders[i].noUiSlider.on('update', function( values, handle ) {
+      	var value = values[handle];
+      	console.log();
+      });*/
     }
 
     function addValues() {
@@ -127,78 +133,15 @@ $(document).ready(function () {
 
       for (var i = 0; i < sliders.length; i++) {
         allValues.push(sliders[i].noUiSlider.get());
-
-        $(minVal[i]).val(Math.round(allValues[i][0]));
-        $(maxVal[i]).val(Math.round(allValues[i][1]));
+        $(minVal[i]).text(Math.round(allValues[i][0]));
+        $(maxVal[i]).text(Math.round(allValues[i][1]));
+        //add to input price
         $(input[i]).val(allValues[i]);
       };
     }
-    $('.from-value').change(function () {
-      var hidden = $(this).parents('.from').next().siblings('input');
-      var prev = $(this).parents('.from').next();
-      var min = prev.data('min');
-
-      if (min <= this.value) {
-        prev.data('slider').set([this.value, null]);
-        var val = prev.data('slider').get();
-        hidden.val(val);
-      } else {
-        this.value = min;
-        prev.data('slider').set([this.value, null]);
-        var val = prev.data('slider').get();
-        hidden.val(val);
-      }
-    });
-    $('.to-value').change(function () {
-      var hidden = $(this).parents('.from').next().siblings('input');
-      var prev = $(this).parents('.from').next();
-      var max = prev.data('max');
-      if (max >= this.value) {
-        prev.data('slider').set([null, this.value]);
-        var val = prev.data('slider').get();
-        hidden.val(val);
-      } else {
-        this.value = max;
-        prev.data('slider').set([null, this.value]);
-        var val = prev.data('slider').get();
-        hidden.val(val);
-      }
-    });
     addValues();
   }
   rangeSlider();
-
-  /*function rangeSlider(){
-     function createSlider (slide) {
-      var slider = noUiSlider.create(sliders[slide], {
-        start: [$(sliders[i]).data("min"), $(sliders[i]).data("max")],
-        connect: true,
-        step: 1,
-        range: {
-          'min': [$(sliders[i]).data("min")],
-          'max': [$(sliders[i]).data("max")]
-        }
-      });
-       $(sliders[slide]).data('slider', slider);
-      sliders[slide].noUiSlider.on('change', addValues);
-    }
-     function addValues(values, handle) {
-      console.log( $(event.target).parents('.form-group').find('.from-value').val(values));
-      //console.log($(event.currentTarget).find('.from-value').val(values[0]));
-    }
-    var sliders = $('.range-sliders');
-     for ( var i = 0; i < sliders.length; i++ ) {
-      createSlider(i);
-    }
-     $('.from-value').change(function(){
-      $(this).parents('.from').next().data('slider').set([this.value, null]);
-    });
-    $('.to-value').change(function(){
-      $(this).parents('.from').next().data('slider').set([null, this.value]);
-    });
-  }
-  rangeSlider();*/
-
   $('[data-item="reset"]').on('click', function (e) {
     location.reload();
   });
@@ -215,7 +158,7 @@ $(document).ready(function () {
     var ul = $(this).siblings('.select2').find('.select2-selection__rendered');
 
     $selected.each(function (k, v) {
-      var $li = $('<li class="tag-selected"><a class="destroy-tag-selected">×</a>' + $(v).text() + '</li>');
+      var $li = $('<li class="tag-selected">' + $(v).text() + '<a class="destroy-tag-selected">×</a></li>');
       $li.children('a.destroy-tag-selected').off('click.select2-copy').on('click.select2-copy', function (e) {
         var $opt = $(this).data('select2-opt');
         $opt.attr('selected', false);
@@ -263,11 +206,11 @@ $(document).ready(function () {
 
   var filterForm = $('[data-form="filter"]');
 
-  filterForm.on('submit', function (e) {
+  /*filterForm.on('submit', function (e) {
     e.preventDefault();
     var data = decodeURI($(this).serialize());
     console.log(data);
-  });
+  });*/
 });
 
 function send() {
@@ -279,16 +222,18 @@ function send() {
   }
   function showResponse(responseText, statusText, xhr, $form) {
     var name = $form.data('item');
+    $('.modal').modal('hide');
     if (name === 'call') {
-      $('.modal').modal('hide');
       $('#thx-call').modal('show');
     } else if (name === 'call-2') {
-      $('.modal').modal('hide');
       $('#thx-call-2').modal('show');
     } else if (name === 'call-3') {
-      $('.modal').modal('hide');
       $('#thx-call-3').modal('show');
-    } else {}
+    } else if (name == 'call-4') {
+      $('#thx-call').modal('show');
+    } else if (name == 'call-5') {
+      $('#thx-call').modal('show');
+    }
   }
   var options = {
     beforeSubmit: showRequest,
